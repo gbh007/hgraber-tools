@@ -94,9 +94,9 @@ func (Provider) scanPages(dirPath string) ([]domain.Page, error) {
 		}
 
 		res = append(res, domain.Page{
-			PageNumber: number,
-			Ext:        fileParts[1],
-			LoadAt:     info.ModTime(),
+			Number: number,
+			Ext:    fileParts[1],
+			LoadAt: info.ModTime(),
 		})
 	}
 

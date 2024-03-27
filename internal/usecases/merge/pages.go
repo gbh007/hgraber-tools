@@ -34,15 +34,15 @@ func (m Merger) mergePages(bookID int, a, b map[int]domain.Page) map[int]domain.
 
 func (m Merger) mergePage(bookID int, a, b domain.Page) domain.Page {
 	c := domain.Page{
-		PageNumber: a.PageNumber,
-		Ext:        a.Ext,
-		Url:        a.Url,
-		LoadAt:     mergeDate(a.LoadAt, b.LoadAt),
+		Number: a.Number,
+		Ext:    a.Ext,
+		Url:    a.Url,
+		LoadAt: mergeDate(a.LoadAt, b.LoadAt),
 	}
 
 	if m.logDiff {
-		if a.PageNumber != b.PageNumber {
-			log.Printf("book %d page > number: %d != %d\n", bookID, a.PageNumber, b.PageNumber)
+		if a.Number != b.Number {
+			log.Printf("book %d page > number: %d != %d\n", bookID, a.Number, b.Number)
 		}
 
 		if a.Ext != b.Ext {

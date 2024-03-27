@@ -22,7 +22,7 @@ func (Merger) toMap(raw []domain.Book) map[int]mappedBook {
 		mb.Book.Pages = nil
 
 		for _, rawPage := range rawBook.Pages {
-			mb.Pages[rawPage.PageNumber] = rawPage
+			mb.Pages[rawPage.Number] = rawPage
 		}
 
 		res[rawBook.ID] = mb

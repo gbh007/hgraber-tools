@@ -28,10 +28,10 @@ type Page struct {
 
 func pageToDomain(p Page) domain.Page {
 	return domain.Page{
-		PageNumber: p.PageNumber,
-		Ext:        p.Ext,
-		Url:        p.Url,
-		LoadAt:     stringToTime(p.LoadAt.String),
+		Number: p.PageNumber,
+		Ext:    p.Ext,
+		Url:    p.Url,
+		LoadAt: stringToTime(p.LoadAt.String),
 	}
 }
 

@@ -29,28 +29,20 @@ type Page struct {
 	Size sql.NullInt64  `db:"size"`
 }
 
-type Attribute struct {
-	Code string `db:"code"`
-}
-
 type BookAttribute struct {
 	BookID int    `db:"book_id"`
 	Attr   string `db:"attr"`
 	Value  string `db:"value"`
 }
 
-type BookAttributeParsed struct {
-	BookID int    `db:"book_id"`
-	Attr   string `db:"attr"`
-	Parsed bool   `db:"parsed"`
-}
-
 func pageToDomain(p Page) domain.Page {
 	return domain.Page{
-		PageNumber: p.PageNumber,
-		Ext:        p.Ext,
-		Url:        p.Url,
-		LoadAt:     p.LoadAt.Time,
+		Number: p.PageNumber,
+		Ext:    p.Ext,
+		Url:    p.Url,
+		LoadAt: p.LoadAt.Time,
+		Hash:   p.Hash.String,
+		Size:   p.Size.Int64,
 	}
 }
 

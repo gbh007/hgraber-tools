@@ -20,10 +20,10 @@ func (db *Database) Books(_ context.Context) ([]domain.Book, error) {
 		pages := make([]domain.Page, len(rawBook.Pages))
 		for i, rawPage := range rawBook.Pages {
 			pages[i] = domain.Page{
-				PageNumber: i + 1,
-				Ext:        rawPage.Ext,
-				Url:        rawPage.URL,
-				LoadAt:     rawPage.LoadedAt,
+				Number: i + 1,
+				Ext:    rawPage.Ext,
+				Url:    rawPage.URL,
+				LoadAt: rawPage.LoadedAt,
 			}
 		}
 

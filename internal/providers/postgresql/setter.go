@@ -19,7 +19,7 @@ func (db *Database) UpdateDates(ctx context.Context, data []domain.Book) error {
 
 		for _, page := range book.Pages {
 			if !page.LoadAt.IsZero() {
-				err := db.updatePageDate(ctx, book.ID, page.PageNumber, page.LoadAt)
+				err := db.updatePageDate(ctx, book.ID, page.Number, page.LoadAt)
 				if err != nil {
 					return err
 				}

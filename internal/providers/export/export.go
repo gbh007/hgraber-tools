@@ -27,10 +27,12 @@ func (ep ExportProvider) Export(ctx context.Context, filename string, data []dom
 		pages := make([]Page, len(raw.Pages))
 		domain.ConvertSlice(pages, raw.Pages, func(p domain.Page) Page {
 			return Page{
-				Number: p.PageNumber,
+				Number: p.Number,
 				Ext:    p.Ext,
 				Url:    p.Url,
 				LoadAt: p.LoadAt,
+				Hash:   p.Hash,
+				Size:   p.Size,
 			}
 		})
 
@@ -39,12 +41,13 @@ func (ep ExportProvider) Export(ctx context.Context, filename string, data []dom
 		})
 
 		dataToExport[i] = Book{
-			ID:        raw.ID,
-			Name:      raw.Name,
-			Url:       raw.Url,
-			PageCount: raw.PageCount,
-			CreateAt:  raw.CreateAt,
-			Pages:     pages,
+			ID:         raw.ID,
+			Name:       raw.Name,
+			Url:        raw.Url,
+			PageCount:  raw.PageCount,
+			CreateAt:   raw.CreateAt,
+			Pages:      pages,
+			Attributes: Attributes(raw.Attributes),
 		}
 	}
 
