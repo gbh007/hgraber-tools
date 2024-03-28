@@ -2,8 +2,8 @@ package main
 
 import (
 	"app/internal/domain"
-	"app/internal/providers/export"
 	"app/internal/providers/jdb"
+	"app/internal/providers/jsondata"
 	"app/internal/providers/postgresql"
 	"app/internal/providers/sqlite"
 	"context"
@@ -54,7 +54,7 @@ func main() {
 		}
 	}
 
-	exporter := export.New("")
+	exporter := jsondata.New("")
 
 	err := exporter.Export(ctx, *toFile, data)
 	if err != nil {

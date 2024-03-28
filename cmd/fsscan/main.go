@@ -1,8 +1,8 @@
 package main
 
 import (
-	"app/internal/providers/export"
 	"app/internal/providers/fsscan"
+	"app/internal/providers/jsondata"
 	"context"
 	"flag"
 	"log"
@@ -22,7 +22,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	exporter := export.New("")
+	exporter := jsondata.New("")
 
 	err = exporter.Export(ctx, *toFile, data)
 	if err != nil {

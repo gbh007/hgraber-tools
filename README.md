@@ -24,6 +24,14 @@
 
 > fsscan -f loads -to fsscan-out.json
 
+Сканирование созданных файлов на соответствие данным:
+
+> zipmatcher -f exports -src postgresql-out.json -to zip-match.json
+
+Сканирование данных на поиск дубликатов (или на наличие данных в других):
+
+> bookmatcher -f postgresql-out.json -src postgresql-out.json -to book-match.json -filter
+
 ## Что не поддерживает проект
 
 1. JDB в новом формате (можно сконвертировать через PostgreSQL, но возможны потери дат)

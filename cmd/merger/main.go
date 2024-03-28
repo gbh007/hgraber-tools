@@ -1,7 +1,7 @@
 package main
 
 import (
-	"app/internal/providers/export"
+	"app/internal/providers/jsondata"
 	"app/internal/usecases/merge"
 	"context"
 	"flag"
@@ -17,7 +17,7 @@ func main() {
 
 	ctx := context.Background()
 
-	exporter := export.New("")
+	exporter := jsondata.New("")
 
 	aData, err := exporter.Import(ctx, *aSource)
 	if err != nil {

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"app/internal/providers/export"
+	"app/internal/providers/jsondata"
 	"app/internal/providers/postgresql"
 	"context"
 	"flag"
@@ -15,7 +15,7 @@ func main() {
 
 	ctx := context.Background()
 
-	exporter := export.New("")
+	exporter := jsondata.New("")
 
 	data, err := exporter.Import(ctx, *fromSource)
 	if err != nil {

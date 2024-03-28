@@ -1,4 +1,4 @@
-package export
+package jsondata
 
 import "time"
 
@@ -30,4 +30,31 @@ type Attributes struct {
 	Categories []string `json:"categories,omitempty"`
 	Parodies   []string `json:"parodies,omitempty"`
 	Groups     []string `json:"groups,omitempty"`
+}
+
+type MatchRecord struct {
+	ID        int     `json:"id"`
+	Name      string  `json:"name"`
+	Url       string  `json:"url"`
+	MatchRate float64 `json:"match_rate"` // [0;1]
+}
+
+type MatchFileResult struct {
+	Path   string        `json:"path"`
+	Result []MatchRecord `json:"result,omitempty"`
+}
+
+type MatchFilesResult struct {
+	NotMatched []string          `json:"not_matched,omitempty"`
+	Matched    []MatchFileResult `json:"matched,omitempty"`
+}
+
+type MatchBookResult struct {
+	Book   Book          `json:"book"`
+	Result []MatchRecord `json:"result,omitempty"`
+}
+
+type MatchBooksResult struct {
+	NotMatched []Book            `json:"not_matched,omitempty"`
+	Matched    []MatchBookResult `json:"matched,omitempty"`
 }

@@ -1,4 +1,4 @@
-package export
+package jsondata
 
 import (
 	"app/internal/domain"
