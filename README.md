@@ -32,6 +32,10 @@
 
 > bookmatcher -f postgresql-out.json -src postgresql-out.json -to book-match.json -filter
 
+Перенос данных из v4 в v5
+
+> transfer4to5 -from 1 -to 10 -hg4-addr="http://localhost:8081" -hg4-token=local-debug -hg5-addr="http://localhost:8080" -hg5-token=local-next
+
 ## Что не поддерживает проект
 
 1. JDB в новом формате (можно сконвертировать через PostgreSQL, но возможны потери дат)
